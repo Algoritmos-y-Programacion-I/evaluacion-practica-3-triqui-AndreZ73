@@ -63,33 +63,39 @@ public class Executable {
     }
 
     private void jugadaMaquina() {
-        cont.jugadaAleatoria();
-        System.out.println("La máquina ha realizado su jugada.");
-        imprimirTablero();
+        if(!cont.verificarSiLaTablaEstaLlena()) {
+            cont.jugadaAleatoria();
+            System.out.println("La máquina ha realizado su jugada.");
+            imprimirTablero();
+        }else {
+            System.out.println("Error, la tabla ya esta llena! Verifica si hay un ganador!!!");
+        }
     }
 
     private void jugadaHumano() {
-        System.out.println("Ingrese la posición de su jugada. Primero la fila: (1,2,3) *Recuerde que la fila es horizontal");
-        int fila = reader.nextInt();
-        reader.nextLine();
-
-        System.out.println("Ingrese la posición de su jugada. Ahora la columna: (1,2,3) *Recuerde que la columna es vertical");
-        int columna = reader.nextInt();
-        reader.nextLine();
-
-        while(!cont.jugadaHumano(fila, columna)) {
-            System.out.println("Error, posición ocupada: Ingrese nuevamente la fila: (1,2,3)");
-            fila = reader.nextInt();
+        if(!cont.verificarSiLaTablaEstaLlena()) {
+            System.out.println("Ingrese la posición de su jugada. Primero la fila: (1,2,3) *Recuerde que la fila es horizontal");
+            int fila = reader.nextInt();
             reader.nextLine();
-            
-            System.out.println("Ahora la columna: (1,2,3)");
-            columna = reader.nextInt();
+
+            System.out.println("Ingrese la posición de su jugada. Ahora la columna: (1,2,3) *Recuerde que la columna es vertical");
+            int columna = reader.nextInt();
             reader.nextLine();
+
+            while(!cont.jugadaHumano(fila, columna)) {
+                System.out.println("Error, posición ocupada: Ingrese nuevamente la fila: (1,2,3)");
+                fila = reader.nextInt();
+                reader.nextLine();
+                
+                System.out.println("Ahora la columna: (1,2,3)");
+                columna = reader.nextInt();
+                reader.nextLine();
+            }
+
+            imprimirTablero();
+        } else {
+            System.out.println("Error, la tabla ya esta llena! Verifica si hay un ganador!!!");
         }
-
-        imprimirTablero();
-        
-        // Implementación de jugada de humano
     }
 
     private void validarGanador() {
@@ -106,5 +112,6 @@ public class Executable {
         } else {
         System.out.println("Nadie ha ganado!");
         }
+        cont.vaciarTablaParaNuevoJuego();
     }
 }

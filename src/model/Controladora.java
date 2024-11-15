@@ -101,7 +101,7 @@ public class Controladora {
         }
         return false;
     }
-    
+
     public boolean verificarSiMaquinaGana(){
         if(tableroTresEnRaya[0][0].equals("X") && tableroTresEnRaya[0][1].equals("X") && tableroTresEnRaya[0][2].equals("X")) {
             return true;
@@ -135,5 +135,24 @@ public class Controladora {
             return true;
         }
         return false;
+    }
+
+    public boolean verificarSiLaTablaEstaLlena() {
+        for (int i = 0; i < tableroTresEnRaya.length; i ++ ) {
+            for (int j = 0; j < tableroTresEnRaya.length; j++) {
+                if (tableroTresEnRaya[i][j].equals(" ")) {
+                    return false;
+                }
+            }
+        }
+        return true;    
+    }
+
+    public void vaciarTablaParaNuevoJuego() {
+        for (int i = 0; i < tableroTresEnRaya.length; i ++ ) {
+            for (int j = 0; j < tableroTresEnRaya.length; j++) {
+                tableroTresEnRaya[i][j]=(" "); 
+            }
+        }
     }
 }
