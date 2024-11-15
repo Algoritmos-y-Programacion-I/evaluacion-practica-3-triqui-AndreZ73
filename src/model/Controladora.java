@@ -56,4 +56,84 @@ public class Controladora {
         } while (!tableroTresEnRaya[i][j].equals(" "));
         tableroTresEnRaya[i][j] = "X";
     }
+
+    public boolean jugadaHumano(int fila, int columna) {
+        if(tableroTresEnRaya[fila-1][columna-1].equals(" ")){
+            do {
+            } while (!tableroTresEnRaya[fila-1][columna-1].equals(" "));
+            tableroTresEnRaya[fila-1][columna-1] = "O";
+            return true;
+        }
+        return false;
+    }
+
+    public boolean verificarSiHumanoGana(){
+        if(tableroTresEnRaya[0][0].equals("O") && tableroTresEnRaya[0][1].equals("O") && tableroTresEnRaya[0][2].equals("O")) {
+            return true;
+        }
+
+        if(tableroTresEnRaya[1][0].equals("O") && tableroTresEnRaya[1][1].equals("O") && tableroTresEnRaya[1][2].equals("O")) {
+            return true;
+        }
+
+        if(tableroTresEnRaya[2][0].equals("O") && tableroTresEnRaya[2][1].equals("O") && tableroTresEnRaya[2][2].equals("O")) {
+            return true;
+        }
+        
+        if(tableroTresEnRaya[0][0].equals("O") && tableroTresEnRaya[1][0].equals("O") && tableroTresEnRaya[2][0].equals("O")) {
+            return true;
+        }
+
+        if(tableroTresEnRaya[0][1].equals("O") && tableroTresEnRaya[1][1].equals("O") && tableroTresEnRaya[2][1].equals("O")) {
+            return true;
+        }
+
+        if(tableroTresEnRaya[0][2].equals("O") && tableroTresEnRaya[1][2].equals("O") && tableroTresEnRaya[2][2].equals("O")) {
+            return true;
+        }
+
+        if(tableroTresEnRaya[0][0].equals("O") && tableroTresEnRaya[1][1].equals("O") && tableroTresEnRaya[2][2].equals("O")) {
+            return true;
+        }
+
+        if(tableroTresEnRaya[0][2].equals("O") && tableroTresEnRaya[1][1].equals("O") && tableroTresEnRaya[2][0].equals("O")) {
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean verificarSiMaquinaGana(){
+        if(tableroTresEnRaya[0][0].equals("X") && tableroTresEnRaya[0][1].equals("X") && tableroTresEnRaya[0][2].equals("X")) {
+            return true;
+        }
+
+        if(tableroTresEnRaya[1][0].equals("X") && tableroTresEnRaya[1][1].equals("X") && tableroTresEnRaya[1][2].equals("X")) {
+            return true;
+        }
+
+        if(tableroTresEnRaya[2][0].equals("X") && tableroTresEnRaya[2][1].equals("X") && tableroTresEnRaya[2][2].equals("X")) {
+            return true;
+        }
+        
+        if(tableroTresEnRaya[0][0].equals("X") && tableroTresEnRaya[1][0].equals("X") && tableroTresEnRaya[2][0].equals("X")) {
+            return true;
+        }
+
+        if(tableroTresEnRaya[0][1].equals("X") && tableroTresEnRaya[1][1].equals("X") && tableroTresEnRaya[2][1].equals("X")) {
+            return true;
+        }
+
+        if(tableroTresEnRaya[0][2].equals("X") && tableroTresEnRaya[1][2].equals("X") && tableroTresEnRaya[2][2].equals("X")) {
+            return true;
+        }
+
+        if(tableroTresEnRaya[0][0].equals("X") && tableroTresEnRaya[1][1].equals("X") && tableroTresEnRaya[2][2].equals("X")) {
+            return true;
+        }
+
+        if(tableroTresEnRaya[0][2].equals("X") && tableroTresEnRaya[1][1].equals("X") && tableroTresEnRaya[2][0].equals("X")) {
+            return true;
+        }
+        return false;
+    }
 }

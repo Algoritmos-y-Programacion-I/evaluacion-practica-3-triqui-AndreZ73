@@ -69,10 +69,42 @@ public class Executable {
     }
 
     private void jugadaHumano() {
+        System.out.println("Ingrese la posición de su jugada. Primero la fila: (1,2,3)");
+        int fila = reader.nextInt();
+        reader.nextLine();
+
+        System.out.println("Ingrese la posición de su jugada. Ahora la columna: (1,2,3)");
+        int columna = reader.nextInt();
+        reader.nextLine();
+
+        while(!cont.jugadaHumano(fila, columna)) {
+            System.out.println("Error, posición ocupada: Ingrese nuevamente la fila: (1,2,3)");
+            fila = reader.nextInt();
+            reader.nextLine();
+            
+            System.out.println("Ahora la columna: (1,2,3)");
+            columna = reader.nextInt();
+            reader.nextLine();
+        }
+
+        imprimirTablero();
+        
         // Implementación de jugada de humano
     }
 
     private void validarGanador() {
-        // Implementación de la validación si alguien ya ganó el triqui
+        if (cont.verificarSiHumanoGana() && cont.verificarSiMaquinaGana()) {
+            System.out.println("Han empatado!");
+
+        }else if(cont.verificarSiHumanoGana()) {
+
+        System.out.println("Ha ganado el humano!");
+
+        } else if(cont.verificarSiMaquinaGana()) {
+            System.out.println("Ha ganado la máquina!");
+
+        } else {
+        System.out.println("Nadie ha ganado!");
+        }
     }
 }
