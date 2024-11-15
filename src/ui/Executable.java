@@ -69,11 +69,11 @@ public class Executable {
     }
 
     private void jugadaHumano() {
-        System.out.println("Ingrese la posición de su jugada. Primero la fila: (1,2,3)");
+        System.out.println("Ingrese la posición de su jugada. Primero la fila: (1,2,3) *Recuerde que la fila es horizontal");
         int fila = reader.nextInt();
         reader.nextLine();
 
-        System.out.println("Ingrese la posición de su jugada. Ahora la columna: (1,2,3)");
+        System.out.println("Ingrese la posición de su jugada. Ahora la columna: (1,2,3) *Recuerde que la columna es vertical");
         int columna = reader.nextInt();
         reader.nextLine();
 
